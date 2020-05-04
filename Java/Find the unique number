@@ -1,0 +1,50 @@
+'''
+There is an array with some numbers. All numbers are equal except for one. Try to find it!
+
+find_uniq([ 1, 1, 1, 2, 1, 1 ]) == 2
+find_uniq([ 0, 0, 0.55, 0, 0 ]) == 0.55
+It’s guaranteed that array contains at least 3 numbers.
+
+The tests contain some very huge arrays, so think about performance.
+
+This is the first kata in series:
+
+1.Find the unique number (this kata)
+2.Find the unique string
+3.Find The Unique
+'''
+
+
+
+ public class Kata {
+    public static double findUniq(double arr[]) {
+      
+      long counter=0;
+      double result=0.0;
+      
+      for(int i=0; i<arr.length; i++) { //check the number of appearances of arr[0] and safe it in counter
+        if(arr[i] == arr[0]) {
+          counter++;
+        }
+      }      
+      
+      System.out.println("Counter: " + counter);
+      
+      if(counter > 1) { //if arr[0] is not the unique one
+        System.out.println("Counter is greater than 1, so arr[0] is not the unique one");
+          for(int i=1; i<arr.length; i++) { 
+            //System.out.println("Checking arr["+i+"] for being unique..."); //this has to be a comment because otherwise the output is too big
+            if(arr[i] != arr[0]) {
+              result = arr[i];
+              System.out.println("arr["+i+"]is the unique element! Its value is " + arr[i]);
+              break;
+            }
+          }
+     
+     } else {
+        result=arr[0];
+     }
+      
+      return result;
+    }
+}
